@@ -1,9 +1,9 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useState } from 'react'
 
 import { ChatWidget, LoginPanel, SignupPanel } from '@luxfi/ui'
-import { useState } from 'react'
 
 const reviews = [
   {
@@ -53,25 +53,25 @@ const reviews = [
   }
 ]
 
-type Props = {
-  searchParams?: { [key: string]: string | string[] | undefined }
-}
-
-const Page = ({ searchParams }: Props) => {
+const Page = () => {
   const router = useRouter()
+  const searchParams = useSearchParams()
 
   const [isLogin, setIsLogin] = useState(true)
 
   const handleLoginDone = () => {
     router.back()
   }
+
+  const redirectUrl = searchParams?.get('redirectUrl') ?? undefined
+
   // max-w-screen-2xl 2xl:w-[1500px]
   return (<>
     <div className={isLogin ? '' : 'hidden'}>
       <LoginPanel
         close={handleLoginDone}
         getStartedUrl='lux.id'
-        redirectUrl={searchParams?.redirectUrl as string ?? undefined}
+        redirectUrl={redirectUrl}
         reviews={reviews}
         setIsLogin={setIsLogin}
       />
@@ -80,7 +80,7 @@ const Page = ({ searchParams }: Props) => {
       <SignupPanel
         close={handleLoginDone}
         getStartedUrl='lux.id'
-        redirectUrl={searchParams?.redirectUrl as string ?? undefined}
+        redirectUrl={redirectUrl}
         reviews={reviews}
         setIsLogin={setIsLogin}
       />
