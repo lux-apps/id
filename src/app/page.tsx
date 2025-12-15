@@ -1,9 +1,11 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import React from 'react'
 
-import { ChatWidget, LoginPanel, SignupPanel } from '@luxfi/ui'
+import { ApplyTypography } from '@hanzo/ui/primitives'
+import { ChatWidget, Footer, Main } from '@luxfi/ui'
+
+import siteDef from '../site-def'
 
 const reviews = [
   {
@@ -17,74 +19,31 @@ const reviews = [
     href: 'https://trstp.lt/a55NNi_j9'
   },
   {
-    text: 'Lux Credit Card has the ability to make transactions that let you borrow from any of your assets in real time! A total game-changer and I highly recommend it.',
-    author: 'Giovanna Mingarelli',
-    href: 'https://trstp.lt/a55NNi_j9'
-  },
-  {
-    text: 'Lux is the best! Highly recommend this great service for anyone interested in DeFi.',
-    author: 'Ben Chu',
-    href: 'https://trstp.lt/PtpL8qO-U'
-  },
-  {
-    text: 'Lux is better than several competitors, good interface. Big fan of the product team and the mission.',
-    author: 'Ben Chu',
-    href: 'https://trstp.lt/PtpL8qO-U'
-  },
-  {
     text: 'Setting the bar for innovation, development and execution within an ever evolving mix of AI, Blockchain, Design and Finance.',
     author: 'Ole Brereton',
     href: 'https://trstp.lt/gOB3GTbOb'
-  },
-  {
-    text: 'World class leaders in the future of metaverse and integrated, financial systems.',
-    author: 'Ole Brereton',
-    href: 'https://trstp.lt/gOB3GTbOb'
-  },
-  {
-    text: 'As an art collector and real estate executive, I value unique investments. Lux Defi, merging real-world assets with blockchain, is a refreshing addition.',
-    author: 'Lisa Goodman',
-    href: 'https://trstp.lt/GfjNiLa7D'
-  },
-  {
-    text: 'Lux, merging real-world assets with blockchain, is a refreshing addition alongside my art works and other assets.',
-    author: 'Lisa Goodman',
-    href: 'https://trstp.lt/GfjNiLa7D'
   }
 ]
 
 const Page = () => {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-
-  const [isLogin, setIsLogin] = useState(true)
-
-  const handleLoginDone = () => {
-    router.back()
-  }
-
-  const redirectUrl = searchParams?.get('redirectUrl') ?? undefined
-
-  // max-w-screen-2xl 2xl:w-[1500px]
   return (<>
-    <div className={isLogin ? '' : 'hidden'}>
-      <LoginPanel
-        close={handleLoginDone}
-        getStartedUrl='lux.id'
-        redirectUrl={redirectUrl}
-        reviews={reviews}
-        setIsLogin={setIsLogin}
-      />
-    </div>
-    <div className={isLogin ? 'hidden' : ''}>
-      <SignupPanel
-        close={handleLoginDone}
-        getStartedUrl='lux.id'
-        redirectUrl={redirectUrl}
-        reviews={reviews}
-        setIsLogin={setIsLogin}
-      />
-    </div>
+    <Main className='h-screen -mt-[44px] md:-mt-[80px]'>
+      <ApplyTypography className='flex flex-col gap-8 m-auto text-center'>
+        <h1>LUX ID</h1>
+        <div className='flex flex-col gap-4 max-w-[40rem] mx-auto'>
+          <h5>Connect your wallet to access your Lux ID.</h5>
+          <p className='text-muted-foreground'>Web3 wallet integration coming soon.</p>
+        </div>
+        <div className='flex flex-col gap-4 mt-8'>
+          {reviews.map((review, i) => (
+            <div key={i} className='text-sm text-muted-foreground italic'>
+              "{review.text}" - {review.author}
+            </div>
+          ))}
+        </div>
+      </ApplyTypography>
+    </Main>
+    <Footer siteDef={siteDef} className='w-full pt-16 lg:mx-auto ' />
     <ChatWidget
       title='LUX'
       subtitle='AI'
