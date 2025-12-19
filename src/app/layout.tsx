@@ -1,8 +1,13 @@
 import React, { type PropsWithChildren } from 'react'
-import type { Viewport, Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'id - LUX',
+  title: "LUX ID",
+  description: "Self-sovereign identity management for the Web3 era.",
 }
 
 export const viewport: Viewport = {
@@ -14,8 +19,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang='en' className='dark'>
-      <body className='bg-black text-white flex flex-col min-h-full'>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-black text-white min-h-screen`}>
         {children}
       </body>
     </html>
