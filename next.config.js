@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -9,6 +8,19 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+  },
+  // Handle missing optional dependencies
+  webpack: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+    }
+    // Ignore pino-pretty and other optional deps
+    config.externals = config.externals || []
+    config.externals.push('pino-pretty', 'lokijs', 'encoding')
+    return config
   },
 }
 

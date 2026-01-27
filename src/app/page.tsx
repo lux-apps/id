@@ -40,11 +40,17 @@ export default function Page() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-wider">
-            LUX
+            LUX ID
           </Link>
-          <div className="flex gap-6 text-sm">
+          <div className="flex items-center gap-6 text-sm">
             <Link href="https://lux.network" className="hover:text-gray-300 transition-colors">Network</Link>
             <Link href="https://docs.lux.network/identity" className="hover:text-gray-300 transition-colors">Docs</Link>
+            <Link
+              href="/login"
+              className="px-4 py-2 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium"
+            >
+              Sign In
+            </Link>
           </div>
         </nav>
       </header>
@@ -67,7 +73,7 @@ export default function Page() {
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
-            href="https://app.lux.id"
+            href="/login"
             className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium"
           >
             Create Identity
@@ -135,7 +141,7 @@ export default function Page() {
             Your identity, your rules.
           </p>
           <Link
-            href="https://app.lux.id"
+            href="/login"
             className="inline-block px-8 py-4 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium"
           >
             Get Started
