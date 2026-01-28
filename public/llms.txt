@@ -1,0 +1,28 @@
+# Lux ID
+
+> Decentralized identity and DID solution on Lux Network.
+
+## About
+Lux ID is a decentralized identity (DID) platform on Lux Network. It provides self-sovereign identity management, verifiable credentials, and decentralized authentication. Users own and control their identity data without relying on centralized authorities, with post-quantum cryptographic security ensuring long-term identity protection.
+
+## Key Features
+- Self-sovereign identity (SSI) with user-controlled data
+- W3C Decentralized Identifier (DID) standard compliance
+- Verifiable credentials issuance and verification
+- Post-quantum secure identity proofs
+- Single sign-on across Lux ecosystem applications
+- Selective disclosure of identity attributes
+- Zero-knowledge identity proofs via Z-Chain
+- Recovery mechanisms for lost credentials
+- Integration with traditional identity providers
+- On-chain identity attestations
+
+## Links
+- [Website](https://lux.id)
+- [Lux Network](https://lux.network)
+- [Documentation](https://docs.lux.network/identity)
+- [DID Resolver](https://lux.id/resolve)
+- [GitHub](https://github.com/luxfi)
+
+## Contact
+- Support: support@lux.network
